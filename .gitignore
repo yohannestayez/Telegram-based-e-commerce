@@ -1,3 +1,9 @@
 photos/
 notebooks/temp_text.txt
 .env
+src/val_data.conll
+src/train_data.conll
+src/test_data.conll
+logs/
+fine_tuned_ner_model/
+results/
