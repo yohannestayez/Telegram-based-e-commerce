@@ -3,12 +3,14 @@
 
 # Telegram Data NER Labeling and Tokenization Project
 
-This project involves extracting named entities such as locations, prices, and products from messages obtained from a Telegram channel and tokenizing the dataset for further analysis. The workflow utilizes a combination of pre-trained Named Entity Recognition (NER) models, custom rule-based labeling techniques, and tokenization for Amharic and multi-lingual text data.
+This project involves extracting named entities such as locations, prices, and products from messages obtained from a 30 Telegram channels and tokenizing the dataset for further analysis. The workflow utilizes a combination of pre-trained Named Entity Recognition (NER) models, custom rule-based labeling techniques, and tokenization for Amharic and multi-lingual text data.
 
 ## Project Structure
 
 - **Dataset**: The dataset consists of Telegram messages saved in a CSV file named `telegram_data.csv`
-- **Model**: We use the pre-trained Masakhane NER model `afroxlmr-large-ner-masakhaner-1.0_2.0` for identifying location, organization, and miscellaneous entities.
+- **Model**: 
+   - We use the pre-trained NER model `mbeukman/xlm-roberta-base-finetuned-amharic-finetuned-ner-amharic and Davlan/distilbert-base-multilingual-cased-masakhaner` for identifying location, organization, and miscellaneous entities.
+
 - **Pipeline**: A custom pipeline is built that integrates both NER model predictions and custom rule-based labeling for price and location extraction.
 
 ## Files
@@ -18,6 +20,8 @@ This project involves extracting named entities such as locations, prices, and p
 - **temp_text.txt**: The output file containing tokenized data for further analysis.
 - **tokenization.ipynb**: Jupyter notebook demonstrating the preprocessing and tokenization of a multi-lingual dataset.
 - **PreprocessingDataLabelStarter.ipynb**: Jupyter notebook for the preprocessing steps and initial data labeling setup for the dataset.
+- **Fine_Tunning_NER_xlmroberta_model.ipynb**: Jupyter notebook to fine tunne the pretrained model xlmroberta_model.
+- **Fine_Tunning_NER_distilbert_model.ipynb**: Jupyter notebook to fine tunne the pretrained model distilbert model.
 
 ## How to Use
 
@@ -54,13 +58,13 @@ Make sure to run this command in your terminal or command prompt where your Pyth
    - Follow the instructions in the notebook to process the data and prepare it for labeling.
 
 ### 4. Run the NER Labeling Script:
-   - After preprocessing, run the `main.py` script (if applicable) to apply the NER model and custom labeling rules to the dataset.
+   - After preprocessing, run the finetunning model's notebooks to apply the NER model and custom labeling rules to the dataset.
    - The final labeled data will be saved in `labeled_data_conll.txt`.
 
 ## NER and Labeling Process
 
 ### 1. **NER Model**:
-   - The script uses the `Masakhane` pre-trained model to extract location (LOC), organization (ORG), and miscellaneous (MISC) entities from messages.
+   - The script uses the `mbeukman/xlm-roberta-base-finetuned-amharic-finetuned-ner-amharic` pre-trained model to extract location (LOC), organization (ORG), and miscellaneous (MISC) entities from messages.
 
 ### 2. **Custom Labeling**:
    - In addition to the NER model, a custom rule-based approach is used to identify prices (ETB, Birr, $, etc.) and additional location names (e.g., Addis Ababa, Mekelle, Bole, etc.).
